@@ -1,0 +1,20 @@
+{
+    "name": "cdk-snippets-for-python",
+    "displayName": "CDK Snippets for Python",
+    "description": "A minimal set of code snippets for AWS CDK v2 to boost your boost your productivity.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "python",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}
