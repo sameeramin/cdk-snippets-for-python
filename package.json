@@ -1,20 +1,87 @@
 {
-    "name": "cdk-snippets-for-python",
-    "displayName": "CDK Snippets for Python",
-    "description": "A minimal set of code snippets for AWS CDK v2 to boost your boost your productivity.",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.67.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "python",
-                "path": "./snippets/snippets.code-snippets"
-            }
-        ]
-    }
+  "name": "cdk-snippets-for-python",
+  "displayName": "CDK Snippets for Python",
+  "description": "A minimal set of code snippets for AWS CDK v2 to boost your productivity.",
+  "version": "1.0.0",
+  "publisher": "sameeramin",
+  "author": {
+    "name": "Muhammad Sameer"
+  },
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "bugs": {
+    "url": "https://github.com/sameeramin/cdk-snippets-for-python/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sameeramin/cdk-snippets-for-python.git"
+  },
+  "homepage": "https://github.com/sameeramin/cdk-snippets-for-python",
+  "license": "SEE LICENSE IN LICENSE",
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "cdk",
+    "aws",
+    "python",
+    "snippets"
+  ],
+  "icon": "docs/images/icon.png",
+  "scripts": {
+    "build": "vsce package"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/api-gateway.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/dynamodb.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/event-targets.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/events.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/iam.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/kms.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/lambda.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/s3.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/sns-subscription.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/sns.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/stepfunctions-tasks.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/stepfunctions.code-snippets"
+      }
+    ]
+  }
 }
