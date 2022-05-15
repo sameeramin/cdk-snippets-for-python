@@ -1,0 +1,140 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS Step Functions.
+
+  "StepFunctionStateMachine": {
+    "prefix": "step-function-state-machine",
+    "body": [
+      "sfn.StateMachine(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    state_machine_type = sfn.StateMachineType.${2|STANDARD,EXPRESS|},",
+      "    definition = ${3:definition},",
+      ")"
+    ],
+    "description": "Generate a Step Function state machine"
+  },
+
+  "StepFunctionPass": {
+    "prefix": "step-function-pass",
+    "body": [
+      "sfn.Pass(",
+      "    self, \"${1:id}\",",
+      "    result = ${2:resultExpression},",
+      "    result_path = ${3:resultPath},",
+      ")"
+    ],
+    "description": "Generate a Step Function Pass state"
+  },
+
+  "StepFunctionWait": {
+    "prefix": "step-function-wait",
+    "body": ["sfn.Wait(self, \"${1:id}\", time = ${2:time})"],
+    "description": "Generate a Step Function Wait state"
+  },
+
+  "StepFunctionWaitTime": {
+    "prefix": "step-function-wait-time",
+    "body": [
+      "sfn.WaitTime.${1|duration,seconds_path,timestamp,timestamp_path|}(${2})"
+    ],
+    "description": "Generate a Step Function WaitTime statement"
+  },
+
+  "StepFunctionChoice": {
+    "prefix": "step-function-choice",
+    "body": ["sfn.Choice(self, \"${1:id}\")"],
+    "description": "Generate a Step Function Choice state"
+  },
+
+  "StepFunctionCondition": {
+    "prefix": "step-function-condition",
+    "body": [
+      "sfn.Condition.${1|and_,boolean_equals,boolean_equals_json_path,is_boolean,is_not_boolean,is_not_null,is_not_numeric,is_not_present,is_not_string,is_not_timestamp,is_null,is_numeric,is_present,is_string,is_timestamp,not_,number_equals,number_equals_json_path,number_greater_than,number_greater_than_equals,number_greater_than_equals_json_path,number_greater_than_json_path,number_less_than,number_less_than_equals,number_less_than_equals_json_path,number_less_than_json_path,or_,string_equals,string_equals_json_path,string_equals_json_path,string_greater_than_equals,string_greater_than_equals_json_path,string_greater_than_json_path,string_less_than,string_less_than_equals,string_less_than_equals_json_path,string_less_than_json_path,string_matches,timestamp_equals,timestamp_equals_json_path,timestamp_greater_than,timestamp_greater_than_equals,timestamp_greater_than_equals_json_path,timestamp_greater_than_json_path,timestampLessThan,timestamp_less_than,timestamp_less_than_equals,timestamp_less_than_json_path|}(${2})"
+    ],
+    "description": "Generate a Step Function Condition statement"
+  },
+
+  "StepFunctionParallel": {
+    "prefix": "step-function-parallel",
+    "body": ["sfn.Parallel(self, \"${1:id}\")"],
+    "description": "Generate a Step Function Parallel state"
+  },
+
+  "StepFunctionSucceed": {
+    "prefix": "step-function-succeed",
+    "body": ["sfn.Succeed(self, \"${1:message}\")"],
+    "description": "Generate a Step Function Succeed state"
+  },
+
+  "StepFunctionFail": {
+    "prefix": "step-function-fail",
+    "body": [
+      "sfn.Fail(",
+      "    self,",
+      "    \"${1:message}\",",
+      "    error = \"${2:errorMessage}\",",
+      "    cause = \"${3:errorCause}\",",
+      ")"
+    ],
+    "description": "Generate a Step Function Fail state"
+  },
+
+  "StepFunctionMap": {
+    "prefix": "step-function-map",
+    "body": [
+      "sfn.Map(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    max_concurrency = ${2},",
+      "    items_path = ${3},",
+      ")"
+    ],
+    "description": "Generate a Step Function Map state"
+  },
+
+  "StepFunctionCustomState": {
+    "prefix": "step-function-custom-state",
+    "body": [
+      "sfn.CustomState(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    state_json = {",
+      "        ${2}",
+      "    },",
+      ")"
+    ],
+    "description": "Generate a Step Function CustomState state"
+  },
+
+  "StepFunctionActivity": {
+    "prefix": "step-function-activity",
+    "body": ["sfn.Activity(self, \"${1:id}\")"],
+    "description": "Generate a Step Function Activity"
+  },
+
+  "StepFunctionIntegrationPattern": {
+    "prefix": "step-function-integration-pattern",
+    "body": [
+      "sfn.IntegrationPattern.${3|REQUEST_RESPONSE,RUN_JOB,WAIT_FOR_TASK_TOKEN|}"
+    ],
+    "description": "Add a Step Function Integration Pattern value"
+  },
+
+  "StepFunctionTaskInput": {
+    "prefix": "step-function-task-input",
+    "body": [
+      "sfn.TaskInput.${1|from_json_path_at,from_object,from_text|}(${2})"
+    ],
+    "description": "Add a Step Function Task Input statement"
+  },
+
+  "StepFunctionJsonPath": {
+    "prefix": "step-function-json-path",
+    "body": [
+      "sfn.JsonPath.${1|is_encoded_json_path,json_to_string,list_at,number_at,string_at|}(\"${2}\")"
+    ],
+    "description": "Add a Step Function Json Path statement"
+  }
+}

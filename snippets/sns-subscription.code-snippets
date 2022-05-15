@@ -1,0 +1,49 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS SNS Subscription
+  "URLSubscription": {
+    "prefix": "sns-subscription-url",
+    "scope": "python",
+    "body": [
+      "${1:topic}.add_subscription(subscriptions.UrlSubscription(\"${2:url}\"))"
+    ],
+    "description": "Add a SNS subscription"
+  },
+
+  "SQSSubscription": {
+    "prefix": "sns-subscription-sqs",
+    "scope": "python",
+    "body": [
+      "${1:topic}.add_subscription(subscriptions.SqsSubscription(${2:queue}))"
+    ],
+    "description": "Add a SQS subscription"
+  },
+
+  "LambdaSubscription": {
+    "prefix": "sns-subscription-lambda",
+    "scope": "python",
+    "body": [
+      "${1:topic}.add_subscription(subscriptions.LambdaSubscription(${2:lambda}))"
+    ],
+    "description": "Add a Lambda subscription"
+  },
+
+  "EmailSubscription": {
+    "prefix": "sns-subscription-email",
+    "scope": "python",
+    "body": [
+      "${1:topic}.add_subscription(subscriptions.EmailSubscription(\"${2:email}\"))"
+    ],
+    "description": "Add an email subscription"
+  },
+
+  "SMSSubscription": {
+    "prefix": "sns-subscription-sms",
+    "scope": "python",
+    "body": [
+      "${1:topic}.add_subscription(subscriptions.SmsSubscription(\"${2:phoneNumber}\"))"
+    ],
+    "description": "Add a SMS subscription"
+  }
+}

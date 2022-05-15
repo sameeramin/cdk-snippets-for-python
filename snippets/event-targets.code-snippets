@@ -1,0 +1,120 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS Event Targets
+  "EventsTargetsAPI": {
+    "prefix": "events-targets-api",
+    "scope": "python",
+    "body": [
+      "targets.AwsApi(",
+      "  action = \"${1}\",",
+      "  service = \"${2}\",",
+      ")"
+    ],
+    "description": "Generate an Event Bridge AWS API target"
+  },
+
+  "EventsTargetsBatchJob": {
+    "prefix": "events-targets-batch-job",
+    "scope": "python",
+    "body": [
+      "targets.BatchJob(",
+      "    job_queue_arn = ${1:job_queue},",
+      "    job_definition_arn = ${2:job_definition},",
+      "    job_name = ${3},",
+      "    attempts = ${4},",
+      ")"
+    ],
+    "description": "Generate an Event Bridge AWS Batch job target"
+  },
+
+  "EventsTargetsCodeBuildProject": {
+    "prefix": "events-targets-code-build-project",
+    "scope": "python",
+    "body": [
+      "targets.CodeBuildProject(",
+      "    project = ${1:project},",
+      "    event_role = ${2:IRole},",
+      ")"
+    ],
+    "description": "Generate an Event Bridge CodeBuild project target"
+  },
+
+  "EventsTargetsCodePipeline": {
+    "prefix": "events-targets-code-pipeline",
+    "scope": "python",
+    "body": [
+      "targets.CodePipeline(",
+      "    pipeline = ${1:pipeline},",
+      "    event_role = ${2:IRole},",
+      ")"
+    ],
+    "description": "Generate an Event Bridge CodePipeline target"
+  },
+
+  "EventsTargetsEcsTask": {
+    "prefix": "events-targets-ecs-task",
+    "scope": "python",
+    "body": [
+      "targets.EcsTask(",
+      "    cluster = ${1},",
+      "    task_definition = ${2},",
+      "    task_count = ${3},",
+      "    role = ${4},",
+      ")"
+    ],
+    "description": "Generate an Event Bridge ECS task target"
+  },
+
+  "EventsTargetsKinesisFirehoseStream": {
+    "prefix": "events-targets-kinesis-firehose-stream",
+    "scope": "python",
+    "body": [
+      "targets.KinesisFirehoseStream(",
+      "    stream = ${1:stream},",
+      "    message = ${2:message}",
+      ")"
+    ],
+    "description": "Generate an Event Bridge Kinesis Firehose stream target"
+  },
+
+  "EventsTargetsKinesisStream": {
+    "prefix": "events-targets-kinesis-stream",
+    "scope": "python",
+    "body": [
+      "targets.KinesisStream(",
+      "    stream = ${1:stream},",
+      "    message = ${2:message}",
+      ")"
+    ],
+    "description": "Generate an Event Bridge Kinesis stream target"
+  },
+
+  "EventsTargetsLambdaFunction": {
+    "prefix": "events-targets-lambda-function",
+    "scope": "python",
+    "body": ["targets.LambdaFunction(${1:function})"],
+    "description": "Generate an Event Bridge Lambda function target"
+  },
+
+  "EventsTargetsSfnStateMachine": {
+    "prefix": "events-targets-sfn-state-machine",
+    "scope": "python",
+    "body": ["targets.SfnStateMachine(${1:state-machine})"],
+    "description": "Generate an Event Bridge Step Function state machine target"
+  },
+
+  "EventsTargetsSnsTopic": {
+    "prefix": "events-targets-sns-topic",
+    "scope": "python",
+    "body": ["targets.SnsTopic(${1:topic})"],
+    "description": "Generate an Event Bridge SNS topic target"
+  },
+
+  "EventsTargetsSqsQueue": {
+    "prefix": "events-targets-sqs-queue",
+    "scope": "python",
+    "body": ["targets.SqsQueue(${1:queue})"],
+    "description": "Generate an Event Bridge SQS queue target"
+  }
+}

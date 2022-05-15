@@ -1,0 +1,169 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS API Gateway
+  "RestAPI": {
+    "prefix": "apigw-rest-api",
+    "scope": "python",
+    "body": ["apigateway.RestApi(self, \"${1:id}\")"],
+    "description": "Generate an API Gateway REST API"
+  },
+
+  "LambdaRestAPI": {
+    "prefix": "apigw-lambda-rest-api",
+    "scope": "python",
+    "body": [
+      "apigateway.LambdaRestApi(",
+	  "    self, \"${1:id}\",",
+      "    handler = ${2:handler},",
+      "    proxy = ${3|False,True|},",
+      ")"
+    ],
+    "description": "Generate an API Gateway Lambda REST API"
+  },
+
+  "SpecRestApi": {
+    "prefix": "apigw-spec-rest-api",
+    "scope": "python",
+    "body": [
+      "apigateway.SpecRestApi(",
+	  "    self, \"${1:id}\", ",
+      "    api_definition = ${2},",
+      "})"
+    ],
+    "description": "Generate an API Gateway Spec REST API"
+  },
+
+  "AssetApiDefinition": {
+    "prefix": "apigw-asset-api-definition",
+    "scope": "python",
+    "body": ["apigateway.AssetApiDefinition(\"${1:path}\")"],
+    "description": "Generate an API Gateway Asset API definition"
+  },
+
+  "S3ApiDefinition": {
+    "prefix": "apigw-s3-api-definition",
+    "scope": "python",
+    "body": [
+      "apigateway.S3ApiDefinition(",
+      "  ${1:bucket},",
+      "  \"${2:key}\",",
+      ")"
+    ],
+    "description": "Generate an API Gateway S3 API definition"
+  },
+
+  "InlineApiDefinition": {
+    "prefix": "apigw-inline-api-definition",
+    "scope": "python",
+    "body": ["apigateway.InlineApiDefinition(${1:api_definition})"],
+    "description": "Generate an API Gateway Inline API definition"
+  },
+
+  "Resource": {
+    "prefix": "apigw-add-resource",
+    "scope": "python",
+    "body": ["${1:item}.add_resource(\"${2:item}\")"],
+    "description": "Generate an API Gateway resource"
+  },
+
+  "Method": {
+    "prefix": "apigw-add-method",
+    "scope": "python",
+    "body": [
+      "${1:item}.add_method(",
+      "    \"${2|GET,POST,PUT,DELETE,OPTIONS,HEAD,PATCH|}\",",
+      "    ${3:integration},",
+      ")"
+    ],
+    "description": "Generate an API Gateway method"
+  },
+
+  "HttpIntegration": {
+    "prefix": "apigw-http-integration",
+    "scope": "python",
+    "body": [
+      "apigateway.HttpIntegration(",
+	  "    \"${1:url}\",",
+      "    http_method = \"${2|GET,POST,PUT,DELETE,OPTIONS,HEAD,PATCH|}\",",
+      "    proxy = ${3|False,True|},",
+      ")"
+    ],
+    "description": "Generate an API Gateway HTTP integration"
+  },
+
+  "LambdaIntegration": {
+    "prefix": "apigw-lambda-integration",
+    "scope": "python",
+    "body": [
+      "apigateway.LambdaIntegration(${1:handler})"
+    ],
+    "description": "Generate an API Gateway lambda integration"
+  },
+
+  "AwsIntegration": {
+    "prefix": "apigw-aws-integration",
+    "scope": "python",
+    "body": [
+      "apigateway.AwsIntegration(",
+      "    service = \"${1:serviceName}\",",
+      "    path = \"${2:servicePath}\",",
+      "    proxy = ${3|False,True|},",
+      ")"
+    ],
+    "description": "Generate an API Gateway AWS integration"
+  },
+
+  "AddModel": {
+    "prefix": "apigw-add-model",
+    "scope": "python",
+    "body": [
+      "${1:api}.add_model(",
+	  "    \"${2:id}\",",
+      "    model_name = \"${3:model_name}\",",
+      "    content_type = \"${4|application/json,application/x-www-form-urlencoded,application/xml,text/html,text/plain,text/xml,...|}\",",
+      "    schema = ${5:schema},",
+      ")"
+    ],
+    "description": "Generate an API Gateway model"
+  },
+
+  "AddProxy": {
+    "prefix": "apigw-add-proxy",
+    "scope": "python",
+    "body": [
+      "${1:resource}.add_proxy(",
+      "    default_integration = ${2: integration},",
+      "    any_method = ${3|False,True|},",
+      ")"
+    ],
+    "description": "Generate an API Gateway proxy"
+  },
+
+  "TokenAuthorizer": {
+    "prefix": "apigw-token-authorizer",
+    "scope": "python",
+    "body": [
+      "apigateway.TokenAuthorizer(",
+	  "    self, \"${1:id}\", {",
+      "    handler = ${2:handler},",
+      ")"
+    ],
+    "description": "Generate an API Gateway token authorizer"
+  },
+
+  "RequestAuthorizer": {
+    "prefix": "apigw-request-authorizer",
+    "scope": "python",
+    "body": [
+      "apigateway.RequestAuthorizer(",
+	  "    self, \"${1:id}\"",
+      "    handler = ${2:handler},",
+      "    identity_sources = [",
+      "    ${3: source}",
+      "  ],",
+      ")"
+    ],
+    "description": "Generate an API Gateway request authorizer"
+  }
+}

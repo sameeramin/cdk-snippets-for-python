@@ -1,0 +1,116 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS IAM
+  "Role": {
+    "prefix": "iam-role",
+    "scope": "python",
+    "body": [
+      "iam.Role(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    assumed_by = $2",
+      ")"
+    ],
+    "description": "Generate an IAM role"
+  },
+
+  "ImportRole": {
+    "prefix": "iam-import-role",
+    "scope": "python",
+    "body": [
+      "iam.Role.from_role_arn(self, \"${1:id}\", \"arn:aws:iam::${2:account_id}:role/${3:role_name}\")"
+    ],
+    "description": "Import an IAM role by ARN"
+  },
+
+  "PolicyDocument": {
+    "prefix": "iam-policy-document",
+    "scope": "python",
+    "body": [
+      "iam.PolicyDocument(",
+      "    statements = [",
+      "        $1",
+      "    ],",
+      ")"
+    ],
+    "description": "Generate an IAM policy document"
+  },
+
+  "PolicyStatement": {
+    "prefix": "iam-policy-statement",
+    "scope": "python",
+    "body": [
+      "iam.PolicyStatement(",
+      "    effect = iam.Effect.${1|ALLOW,DENY|},",
+      "    resources = [",
+      "        $2",
+      "    ],",
+      "  actions = [",
+      "        $3",
+      "    ],",
+      "    principals = [",
+      "        $4",
+      "    ]",
+      ")"
+    ],
+    "description": "Generate an IAM policy statement"
+  },
+
+  "AwsManagedPolicyByName": {
+    "prefix": "iam-aws-managed-policy-by-name",
+    "scope": "python",
+    "body": [
+      "iam.ManagedPolicy.from_aws_managed_policy_name(\"${1:managed_policy_name}\")"
+    ],
+    "description": "Import an AWS managed policy by name"
+  },
+
+  "ManagedPolicyByArn": {
+    "prefix": "iam-managed-policy-by-arn",
+    "scope": "python",
+    "body": [
+      "iam.ManagedPolicy.from_managed_policy_arn(self, \"${1:id}\", \"arn:aws:iam::${2:account_id}:policy/${3:managed_policy_path}\")"
+    ],
+    "description": "Import a customer managed policy by ARN"
+  },
+
+  "ManagedPolicyByName": {
+    "prefix": "iam-managed-policy-by-name",
+    "scope": "python",
+    "body": [
+      "iam.ManagedPolicy.from_managed_policy_name(self, \"${1:id}\", \"${2:managed_policy_name}\")"
+    ],
+    "description": "Import a customer managed policy by name"
+  },
+
+  "AccountPrincipal": {
+    "prefix": "iam-account-principal",
+    "scope": "python",
+    "body": ["iam.AccountPrincipal(\"${1:account_id}\")"],
+    "description": "Generate an IAM account principal"
+  },
+
+  "ArnPrincipal": {
+    "prefix": "iam-arn-principal",
+    "scope": "python",
+    "body": [
+      "iam.ArnPrincipal(\"arn:aws:iam::${1:account_id}:${2:resource}\")"
+    ],
+    "description": "Generate an IAM ARN principal"
+  },
+
+  "ServicePrincipal": {
+    "prefix": "iam-service-principal",
+    "scope": "python",
+    "body": ["iam.ServicePrincipal(\"${1:service}.amazonaws.com\")"],
+    "description": "Generate an IAM service principal"
+  },
+
+  "OrganizationPrincipal": {
+    "prefix": "iam-organization-principal",
+    "scope": "python",
+    "body": ["iam.OrganizationPrincipal(\"${1:organization_id}\")"],
+    "description": "Generate an IAM organization principal"
+  }
+}

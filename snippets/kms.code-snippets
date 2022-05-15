@@ -1,0 +1,35 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS KMS
+  "Key": {
+    "prefix": "kms-key",
+    "scope": "python",
+    "body": [
+      "kms.Key(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    enable_key_rotation = ${2|False,True|},",
+      ")"
+    ],
+    "description": "Generate a KMS key"
+  },
+
+  "KeyFromAlias": {
+    "prefix": "kms-key-from-alias",
+    "scope": "python",
+    "body": [
+      "kms.Alias.from_alias_name(self, \"${1:id}\", \"${2:alias_name}\")"
+    ],
+    "description": "Import a KMS key by alias"
+  },
+
+  "KeyFromArn": {
+    "prefix": "kms-key-from-arn",
+    "scope": "python",
+    "body": [
+      "kms.Key.from_key_arn(self, \"${1:id}\", \"arn:aws:kms:${2:region}:${3:accountId}:key/${4:keyId}\")"
+    ],
+    "description": "Import a KMS key by ARN"
+  }
+}

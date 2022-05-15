@@ -1,0 +1,62 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS S3
+  "Bucket": {
+    "prefix": "s3-bucket",
+	"scope": "python",
+    "body": [
+      "s3.Bucket(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    bucket_name = \"${2:bucket_name}\",",
+      "    access_control = s3.BucketAccessControl.${3|PRIVATE,PUBLIC_READ,PUBLIC_READ_WRITE,AUTHENTICATED_READ,LOG_DELIVERY_WRITE,BUCKET_OWNER_READ,BUCKET_OWNER_FULL_CONTROL,AWS_EXEC_READ|},",
+      "    encryption = s3.BucketEncryption.${4|S3_MANAGED,KMS_MANAGED,KMS,UNENCRYPTED|},",
+      "    versioned = ${5|False,True|},",
+      "    block_public_access = s3.BlockPublicAccess.${6|BLOCK_ALL,BLOCK_ACLS|}",
+      ")"
+    ],
+    "description": "Generate S3 bucket"
+  },
+
+  "BucketFromName": {
+    "prefix": "s3-import-from-name",
+	"scope": "python",
+    "body": [
+      "s3.Bucket.from_bucket_name(self, \"${1:id}\", \"${2:bucket_name}\")"
+    ],
+    "description": "Import S3 bucket by name"
+  },
+
+  "BucketFromArn": {
+    "prefix": "s3-import-from-arn",
+	"scope": "python",
+    "body": [
+      "s3.Bucket.from_bucket_arn(self, \"${1:id}\", \"arn:aws::s3:::${2:bucket_name}\")"
+    ],
+    "description": "Import S3 bucket by ARN"
+  },
+
+  "BucketFromAttributes": {
+    "prefix": "s3-import-from-attributes",
+	"scope": "python",
+    "body": [
+      "s3.Bucket.from_bucket_attributes(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    account =  \"${2:account}\",",
+      "    bucket_arn = \"arn:aws::s3:::${3}\",",
+      "    bucket_domain_name = \"${4}\",",
+      "    bucket_dual_stack_domain_name = \"${5}\",",
+      "    bucket_name = \"${6}\",",
+      "    bucket_regional_domain_name = \"${7}\",",
+      "    bucket_website_new_url_format = ${8|False,True|},",
+      "    bucket_website_url = \"${9}\",",
+      "    encryption_key = kms.Key.fromKeyArn(\"arn:aws:kms:${10:region}:${11:accountId}:key/${12:keyId}\"),",
+      "    is_website = ${13|False,True|},",
+      "    region = \"${14}\"",
+      ")"
+    ],
+    "description": "Import S3 bucket by attributes"
+  }
+}

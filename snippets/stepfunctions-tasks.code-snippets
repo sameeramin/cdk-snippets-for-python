@@ -1,0 +1,191 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS Step Functions Tasks
+  "StepFunctionsTaskEvaluate": {
+    "prefix": "step-function-task-evaluate",
+    "scope": "python",
+    "body": [
+      "tasks.EvaluateExpression(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    expression = \"${2:expression}\",",
+      "    result_path = \"${3:result_path}\",",
+      ")"
+    ],
+    "description": "Add a Step Function Task Evaluate"
+  },
+
+  "StepFunctionsTaskBatch": {
+    "prefix": "step-function-task-batch",
+    "scope": "python",
+    "body": [
+      "tasks.BatchSubmitJob(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    job_name = \"${2:job_name}\",",
+      "    job_definition_arn = \"${3}\",",
+      "    job_queue_arn = \"${4}\",",
+      ")"
+    ],
+    "description": "Add a Step Function Task for AWS Batch submit job"
+  },
+
+  "StepFunctionsTaskCodeBuild": {
+    "prefix": "step-function-task-code-build",
+    "scope": "python",
+    "body": [
+      "tasks.CodeBuildStartBuild(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    project = ${2:project},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for CodeBuild start build"
+  },
+
+  "StepFunctionsTaskDynamoGetItem": {
+    "prefix": "step-function-task-dynamo-get-item",
+    "scope": "python",
+    "body": [
+      "tasks.DynamoGetItem(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    table = ${2:table},",
+      "    key = {",
+      "        ${3:key_name}: ${4:dynamoAttributeValue}",
+      "    },",
+      ")"
+    ],
+    "description": "Add a Step Function Task for DynamoDB get item"
+  },
+
+  "StepFunctionsTaskDynamoPutItem": {
+    "prefix": "step-function-task-dynamo-put-item",
+    "scope": "python",
+    "body": [
+      "tasks.DynamoPutItem(",
+      "    self, \"${1:id}\",",
+      "    table = ${2:table},",
+      "    item = {",
+      "        ${3}",
+      "    },",
+      ")"
+    ],
+    "description": "Add a Step Function Task for DynamoDB put item"
+  },
+
+  "StepFunctionsTaskDynamoDeleteItem": {
+    "prefix": "step-function-task-dynamo-delete-item",
+    "scope": "python",
+    "body": [
+      "tasks.DynamoDeleteItem(",
+      "    self,",
+      "   \"${1:id}\",",
+      "    table = ${2:table},",
+      "    key = {",
+      "        ${3:keyName}: ${4:dynamoAttributeValue}",
+      "    },",
+      ")"
+    ],
+    "description": "Add a Step Function Task for DynamoDB delete item"
+  },
+
+  "StepFunctionsTaskDynamoUpdateItem": {
+    "prefix": "step-function-task-dynamo-update-item",
+    "scope": "python",
+    "body": [
+      "tasks.DynamoUpdateItem(",
+      "    this,",
+      "    \"${1:id}\",",
+      "    table = ${2:table},",
+      "    key = {",
+      "        ${3:keyName}: ${4:dynamoAttributeValue}",
+      "    },",
+      "    update_expression = \"${5:updateExpression}\",",
+      "    expression_attribute_values = {",
+      "        ${6:keyName}: ${7:dynamoAttributeValue}",
+      "    },",
+      ")"
+    ],
+    "description": "Add a Step Function Task for DynamoDB update item"
+  },
+
+  "StepFunctionsTaskLambdaInvoke": {
+    "prefix": "step-function-task-lambda-invoke",
+    "scope": "python",
+    "body": [
+      "tasks.LambdaInvoke(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    lambda_function = ${2:function},",
+      "    payload = ${3:taskInput},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for Lambda invoke"
+  },
+
+  "StepFunctionsTaskSnsPublish": {
+    "prefix": "step-function-task-sns-publish",
+    "scope": "python",
+    "body": [
+      "tasks.SnsPublish(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    topic = ${2:snsTopic},",
+      "    message = ${3:message},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for SNS publish"
+  },
+
+  "StepFunctionsTaskStartExecution": {
+    "prefix": "step-function-task-start-execution",
+    "scope": "python",
+    "body": [
+      "tasks.StepFunctionsStartExecution(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    name = \"${2:executionName}\",",
+      "    state_machine = ${3:stateMachine},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for Step Function start execution"
+  },
+
+  "StepFunctionsTaskInvokeActivity": {
+    "prefix": "step-function-task-invoke-activity",
+    "scope": "python",
+    "body": [
+      "tasks.StepFunctionsInvokeActivity(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    activity = ${2:activity},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for Step Function invoke activity"
+  },
+
+  "StepFunctionsTaskSqsSendMessage": {
+    "prefix": "step-function-task-sqs-send-message",
+    "scope": "python",
+    "body": [
+      "tasks.SqsSendMessage(",
+      "    self,",
+      "    \"${1:id}\",",
+      "    queue = ${2:sqsQueue},",
+      "    message_body = ${3:messageBody},",
+      ")"
+    ],
+    "description": "Add a Step Function Task for SQS send message"
+  },
+
+  "StepFunctionsTaskDynamoAttributeValue": {
+    "prefix": "step-function-task-dynamo-attribute-value",
+    "scope": "python",
+    "body": [
+      "tasks.DynamoAttributeValue.${1|boolean_from_json_path,from_binary,from_binary_set,from_boolean,from_list,from_map,from_null,from_number,from_number_set,from_string,from_string_set,map_from_json_path,number_from_string,number_set_from_strings|}(\"$2\")"
+    ],
+    "description": "Generate a DynamoDB attribute value statement for Step Function Task"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for DynamoDB
+  "Table": {
+    "prefix": "ddb-table",
+    "scope": "python",
+    "body": [
+      "dynamodb.Table(",
+	  "    self, \"${1:tableId}\",",
+      "    partition_key = $2,",
+      "    sort_key = $3,",
+      "    billing_mode = dynamodb.BillingMode.${4|PAY_PER_REQUEST,PROVISIONED|},",
+      ")"
+    ],
+    "description": "Generate a DynamoDB table"
+  },
+
+  "Attribute": {
+    "prefix": "ddb-attribute",
+    "scope": "python",
+    "body": [
+      "dynamodb.Attribute(name = \"${1:name}\", type = dynamodb.AttributeType.${2|STRING,NUMBER,BINARY|})"
+    ],
+    "description": "Add a DynamoDB table attribute"
+  },
+
+  "GlobalSecondaryIndex": {
+    "prefix": "ddb-gsi",
+    "scope": "python",
+    "body": [
+      "${1:table}.add_global_secondary_index(",
+      "    index_name = \"${2:index_name}\",",
+      "    partition_key = ${3},",
+      "    sort_key = ${4},",
+      "    non_key_attributes = [${5}],",
+      "    projection_type = dynamodb.ProjectionType.${6|ALL,INCLUDE,KEYS_ONLY|},",
+      ")"
+    ],
+    "description": "Generate a DynamoDB global secondary index"
+  },
+
+  "LocalSecondaryIndex": {
+    "prefix": "ddb-lsi",
+    "scope": "python",
+    "body": [
+      "${1:table}.add_local_secondary_index(",
+      "    index_name = \"${2:index_name}\",",
+      "    sort_key = ${3},",
+      "    non_key_attributes = [${4}],",
+      "    projection_type = dynamodb.ProjectionType.${5|ALL,INCLUDE,KEYS_ONLY|},",
+      ")"
+    ],
+    "description": "Generate a DynamoDB local secondary index"
+  }
+}

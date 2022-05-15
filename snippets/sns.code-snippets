@@ -1,0 +1,20 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS SNS
+  "Topic": {
+    "prefix": "sns-topic",
+    "scope": "python",
+    "body": ["sns.Topic(self, \"${1:id}\", topic_name = \"${2}\",)"],
+    "description": "Add a SNS topic"
+  },
+
+  "TopicFromArn": {
+    "prefix": "sns-topic-from-arn",
+    "scope": "python",
+    "body": [
+      "sns.Topic.from_topic_arn(self, \"${1:id}\", \"arn:aws:sns:${2:region}:${3:accountId}:${4:topicName}\")"
+    ],
+    "description": "Import a SNS topic by ARN"
+  }
+}
