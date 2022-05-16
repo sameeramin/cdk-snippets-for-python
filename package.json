@@ -30,7 +30,8 @@
   ],
   "icon": "docs/images/icon.png",
   "scripts": {
-    "build": "vsce package"
+    "build": "vsce package",
+    "deploy": "vsce publish --npm"
   },
   "contributes": {
     "snippets": [
@@ -83,5 +84,8 @@
         "path": "./snippets/stepfunctions.code-snippets"
       }
     ]
+  },
+  "devDependencies": {
+    "vsce": "^2.7.0"
   }
 }
