@@ -2,6 +2,12 @@
 
 All notable changes to the "cdk-snippets-for-python" extension have been documented in this file.
 
+## 1.0.1 (2022-05-17)
+
+### Bug Fixes
+* Minor bug fixes
+* Added workflows for release
+
 ## 1.0.0 (2022-05-01)
 
 ### Features
