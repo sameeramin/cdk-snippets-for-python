@@ -2,7 +2,7 @@
   "name": "cdk-snippets-for-python",
   "displayName": "CDK Snippets for Python",
   "description": "A minimal set of code snippets for AWS CDK v2 to boost your productivity.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "publisher": "sameeramin",
   "author": {
     "name": "Muhammad Sameer"
