@@ -1,0 +1,32 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS Cloudwatch
+  "Metric": {
+    "prefix": "cw-metric",
+	"scope": "python",
+  "body": [
+    "cloudwatch.Metric(",
+    "    namespace=\"${1:namespace}\",",
+    "    metric_name=\"${2:metric_name}\",",
+    "    dimensions_map={",
+    "        \"${3:key}\": ${4:value}",
+    "    }",
+    ")"
+  ],
+    "description": "Creates a Cloudwatch metric"
+  },
+
+  "Alarm": {
+    "prefix": "cw-alarm",
+	"scope": "python",
+  "body": [
+    "cloudwatch.Alarm(self, \"Alarm\",",
+    "    metric=${1:metric},",
+    "    threshold=${2:threshold},",
+    "    evaluation_periods=${3:evaluation_periods}",
+    ")"
+  ],
+    "description": "Creates a Cloudwatch alarm"
+  },
+}

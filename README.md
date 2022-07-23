@@ -10,7 +10,7 @@ Inspired to not only consume but contribute.
 It all started from learning, earning, and working in cool ways, helping others and sharing our ideas for better growth of all, and our laziness of being done anything in simple and easy ways, and as from IT background, simple means minimizing our code, and why not to help others to save their time from writing irritating long scripts.
 we try to put ourselves first as much as we can, so we Will be able to support the people around us.
 
-And when it comes to helping and supporting, there comes open source, and when it comes to open source, We especially want to thanks Dr. Ayesha Ashfaq who is doing a great job at Skipq by making young graduates job ready by conducting extensive and fun training and shortening the gap between industry and academia. (great people great work)
+And when it comes to helping and supporting, there comes open source, and when it comes to open source, We especially want to thanks [Dr. Ayesha Ashfaq](https://www.linkedin.com/in/ayesha-binte-a-90755b8/) who is doing a great job at [SkipQ](https://skipq.org/) by making young graduates job ready by conducting extensive and fun training and shortening the gap between industry and academia. (great people great work)
 
 
 ## Catalog
@@ -23,9 +23,16 @@ If you have a feature request or an issue, please head over to issues on [GitHub
 
 ## Release Notes
 
+### 1.1.0
+
+- Added snippets for Cloudwatch
+### 1.0.1
+
+- Minor bug fixes
+
 ### 1.0.0
 
-Initial release of CDK Snippets for Python.
+- Initial release of CDK Snippets for Python.
 
 
 ## Contributing

@@ -2,6 +2,11 @@
 
 All notable changes to the "cdk-snippets-for-python" extension have been documented in this file.
 
+## 1.1.0 (2022-07-24)
+
+### Features
+* Added code snippets for AWS Cloudwatch
+
 ## 1.0.1 (2022-05-17)
 
 ### Bug Fixes
