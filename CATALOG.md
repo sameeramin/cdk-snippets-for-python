@@ -2,6 +2,19 @@
 
 Following are the snippets available at this moment:
 
+### kinesis
+
+| Prefix | Description |
+|--------|-------------|
+| kns-stream | Creates a kinesis stream |
+
+### cloudwatch
+
+| Prefix | Description |
+|--------|-------------|
+| cw-alarm | Creates a cloudwatch alarm |
+| cw-metric | Creates a cloudwatch metric |
+
 ### api-gateway
 
 | Prefix | Description |

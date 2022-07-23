@@ -23,6 +23,10 @@ If you have a feature request or an issue, please head over to issues on [GitHub
 
 ## Release Notes
 
+### 1.3.0
+
+- Added snippets for Kinesis
+
 ### 1.1.0
 
 - Added snippets for Cloudwatch

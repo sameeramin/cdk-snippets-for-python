@@ -1,0 +1,17 @@
+{
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Code snippets for AWS Kinesis
+  "Stream": {
+    "prefix": "kns-stream",
+	"scope": "python",
+  "body": [
+    "kinesis.Stream(self, \"${1:Id}\",",
+    "    stream_name=\"${2:stream-name}\",",
+    "    shard_count=${3:counts},",
+    "    retention_period=${4:period}",
+    ")"
+  ],
+    "description": "Creates a Kinesis stream"
+  },
+}
