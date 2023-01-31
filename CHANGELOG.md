@@ -2,6 +2,11 @@
 
 All notable changes to the "cdk-snippets-for-python" extension have been documented in this file.
 
+## 1.3.1 (2023-01-31)
+
+### Features
+- Added support for new Runtimes as reported in this [issue](https://github.com/sameeramin/cdk-snippets-for-python/issues/3)
+
 ## 1.3.0 (2022-07-24)
 
 ### Features
