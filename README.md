@@ -1,4 +1,9 @@
 # CDK Snippets for Python
+![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/sameeramin.cdk-snippets-for-python)
+![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/sameeramin.cdk-snippets-for-python)
+![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/sameeramin.cdk-snippets-for-python)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/sameeramin/cdk-snippets-for-python/ci.yml)
+![GitHub issues](https://img.shields.io/github/issues-raw/sameeramin/cdk-snippets-for-python)
 
 **CDK Snippets for Python** is an extension for the Visual Studio Code editor that provides code snippets for creating various components of an AWS service, such as REST APIs, resources, methods, integrations, models, and authorizers. The snippets are written in Python and are designed to be used with the AWS CDK library for defining cloud resources.
 
